@@ -30,5 +30,5 @@ steps:
   inputs:
     pythonUploadServiceConnection: ${{parameters.pypi_auth_feed}}
 
-- script: 'twine upload -r ${{parameters.pypi_auth_feed}} --config-file $(PYPIRC_PATH) dist/*'
+- script: 'python -m twine upload -r ${{parameters.pypi_auth_feed}} --verbose --config-file $(PYPIRC_PATH) --repository-url https://upload.pypi.org/legacy/ dist/*'
   displayName: 'Publish to pypi'
